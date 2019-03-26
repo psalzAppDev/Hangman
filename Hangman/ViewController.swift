@@ -8,13 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    @IBOutlet var guessesLabel: UILabel!
+    @IBOutlet var wordView: UIView!
+    @IBOutlet var letterView: UIView!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func skipWordPressed(_ sender: UIButton) {
+    }
 }
 
