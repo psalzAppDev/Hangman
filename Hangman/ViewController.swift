@@ -44,7 +44,16 @@ class ViewController: UIViewController
         guard wordIndex < words.count-1
         else
         {
-            // TODO: TODO: Show alert.
+            let ac = UIAlertController(title: "Game over",
+                                       message: "No more words!",
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Restart",
+                                       style: .default, handler:
+                                       {    [weak self] _ in
+                                            self?.restart()
+                                       }))
+            present(ac, animated: true)
+            
             return
         }
         
@@ -112,6 +121,14 @@ class ViewController: UIViewController
                                                constant: 20).isActive = true
             }
         }
+    }
+    
+    func restart()
+    {
+        wordIndex = 0
+        words.shuffle()
+        
+        setupNewWord(word(for: wordIndex))
     }
     
     func setupNewWord(_ word: String)
