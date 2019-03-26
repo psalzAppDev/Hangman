@@ -12,6 +12,7 @@
 		D0FD6CB1224ACA6600E5D9EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FD6CAF224ACA6600E5D9EF /* Main.storyboard */; };
 		D0FD6CB3224ACA6700E5D9EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0FD6CB2224ACA6700E5D9EF /* Assets.xcassets */; };
 		D0FD6CB6224ACA6700E5D9EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FD6CB4224ACA6700E5D9EF /* LaunchScreen.storyboard */; };
+		D0FD6CBE224ACB2100E5D9EF /* HangmanWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0FD6CBD224ACB2100E5D9EF /* HangmanWords.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D0FD6CB2224ACA6700E5D9EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0FD6CB5224ACA6700E5D9EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0FD6CB7224ACA6700E5D9EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0FD6CBD224ACB2100E5D9EF /* HangmanWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HangmanWords.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				D0FD6CAD224ACA6600E5D9EF /* ViewController.swift */,
 				D0FD6CAF224ACA6600E5D9EF /* Main.storyboard */,
 				D0FD6CB2224ACA6700E5D9EF /* Assets.xcassets */,
+				D0FD6CBD224ACB2100E5D9EF /* HangmanWords.txt */,
 				D0FD6CB4224ACA6700E5D9EF /* LaunchScreen.storyboard */,
 				D0FD6CB7224ACA6700E5D9EF /* Info.plist */,
 			);
@@ -125,6 +128,7 @@
 				D0FD6CB6224ACA6700E5D9EF /* LaunchScreen.storyboard in Resources */,
 				D0FD6CB3224ACA6700E5D9EF /* Assets.xcassets in Resources */,
 				D0FD6CB1224ACA6600E5D9EF /* Main.storyboard in Resources */,
+				D0FD6CBE224ACB2100E5D9EF /* HangmanWords.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
