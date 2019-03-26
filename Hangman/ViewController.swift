@@ -20,17 +20,37 @@ class ViewController: UIViewController
     var letterLabels = [UILabel]()
     var letterButtons = [UIButton]()
     
+    let alphabet = ["A","B","C","D","E","F",
+                    "G","H","I","J","K","L",
+                    "M","N","O","P","Q","R",
+                    "S","T","U","V","W","X",
+                    "Y","Z"]
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        letterView.backgroundColor = .clear
+        wordView.backgroundColor = .clear
+        
         performSelector(inBackground: #selector(loadWords), with: nil)
+        
+        setupLetterButtons()
     }
 
 
     @IBAction func skipWordPressed(_ sender: UIButton)
     {
+        guard wordIndex < words.count-1
+        else
+        {
+            // TODO: TODO: Show alert.
+            return
+        }
         
+        wordIndex = wordIndex + 1
+        
+        setupNewWord(word(for: wordIndex))
     }
     
     @objc func loadWords()
@@ -47,7 +67,7 @@ class ViewController: UIViewController
         
         DispatchQueue.main.async
         {   [weak self] in
-            print(self?.words ?? "")
+            //print(self?.words ?? "")
             
             guard let strongSelf = self else { return }
             strongSelf.setupNewWord(strongSelf.word(for: strongSelf.wordIndex))
@@ -98,7 +118,8 @@ class ViewController: UIViewController
     {
         clearLetterLabels()
         setupLetterLabels(for: word)
-        setupLetterButtons()
+        
+        letterButtons.forEach { $0.isHidden = false }
     }
     
     func word(for index: Int) -> String
@@ -108,7 +129,57 @@ class ViewController: UIViewController
     
     func setupLetterButtons()
     {
+        // Create 4x6 + 2 grid
+        let scale = UIScreen.main.scale
+        let width = Int((letterView.bounds.width / 6.0 / scale) * 0.9)
+        let height = Int((letterView.bounds.height / 5.0 / scale) * 0.9)
         
+        //print("letterView.width = \(letterView.bounds.width), letterView.height = \(letterView.bounds.height)")
+        print("width = \(width), height = \(height)")
+        
+        for row in 0 ..< 5
+        {
+            let numberOfCols = row < 4 ? 6 : 2
+            for col in 0 ..< numberOfCols
+            {
+                let letterButton = UIButton(type: .system)
+                letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+                letterButton.setTitle(alphabet[6*row + col], for: .normal)
+                
+                let frame = CGRect(x: col * width,
+                                   y: row * height,
+                                   width: width,
+                                   height: height)
+                letterButton.frame = frame
+                
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
+                
+                letterView.addSubview(letterButton)
+                letterButtons.append(letterButton)
+                
+                letterButton.addTarget(self,
+                                       action: #selector(letterTapped),
+                                       for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func letterTapped(_ sender: UIButton)
+    {
+        guard let letter = sender.titleLabel?.text else { return }
+        
+        // TODO: TODO: Check occurrences of the letter
+        
+        // TODO: TODO: If found, replace all letter labels with that letter
+        
+        // TODO: TODO: If not found, reduce guess count by 1
+        
+        // TODO: TODO: If guess count == 0, game over, then new game
+        
+        // TODO: TODO: If last letter was found, show message, then new game
+        
+        sender.isHidden = true
     }
 }
 
