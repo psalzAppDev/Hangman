@@ -123,13 +123,13 @@ class ViewController: UIViewController
         let scale = UIScreen.main.scale
         let width = Int(wordView.bounds.width / scale / CGFloat(wordLength))
         //let width = 20
-        let height = Int((wordView.bounds.height / scale)*0.5)
+        let height = Int((wordView.bounds.height / scale)*0.8)
         
         for i in 0 ..< wordLength
         {
             let label = UILabel()
             label.text = "_"
-            label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
+            //label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
             
             let frame = CGRect(x: i*(width + 20),
                                y: 0,
@@ -194,7 +194,7 @@ class ViewController: UIViewController
         let height = Int(letterView.bounds.height / 5.0 / scale)
         
         //print("letterView.width = \(letterView.bounds.width), letterView.height = \(letterView.bounds.height)")
-        print("width = \(width), height = \(height)")
+        //print("width = \(width), height = \(height)")
         
         for row in 0 ..< 5
         {
